@@ -60,3 +60,13 @@ func TestAdd(t *testing.T) {
 		actAssert(x, y, want)
 	})
 }
+
+func BenchmarkAdd(b *testing.B) {
+	// Arrange
+	e := calculator.Engine{}
+
+	// Run the Add function b.N times
+	for i := 0; i < b.N; i++ {
+		e.Add(2, 3)
+	}
+}
